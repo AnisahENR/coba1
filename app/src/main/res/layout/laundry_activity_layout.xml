@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.anisahdenis.coba1.TambahLaundryActivity">
+
+    <Spinner
+        android:id="@+id/spinnerkategorilaundry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginBottom="20dp"></Spinner>
+        <!--android:entries="@array/kategori_laundry"/>-->
+
+    <Button
+        android:id="@+id/bt_tambah_kategori"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/spinnerkategorilaundry"
+        android:layout_marginEnd="130dp"
+        android:layout_marginTop="60dp"
+        android:text="tambah kategori" />
+
+    <ListView
+        android:id="@+id/listViewNamaKategori"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/bt_tambah_kategori"
+        android:layout_marginTop="77dp" />
+
+</LinearLayout>
