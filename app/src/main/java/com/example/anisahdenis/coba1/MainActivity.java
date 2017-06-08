@@ -79,9 +79,11 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.nav_Category:
               //  fragment = new NavCategoryFragment();
-                NavCategoryFragment navCategoryFragment = new NavCategoryFragment();
+              /*  NavCategoryFragment navCategoryFragment = new NavCategoryFragment();
                 transaction.addToBackStack(NavCategoryFragment.class.getName());
-                transaction.replace(R.id.fragment_contain, navCategoryFragment).commit();
+                transaction.replace(R.id.fragment_contain, navCategoryFragment).commit();*/
+                Intent kategori = new Intent(this, LaundryActivity.class);
+                startActivity(kategori);
                 break;
             case R.id.nav_maps:
                 Intent intent = new Intent(this, MapsActivity.class);

@@ -11,7 +11,7 @@ public class Laundry {
     private Double latitude;
     private Double longitude;
 
-    public Laundry() {
+    public Laundry(String id, String nama_laundry, String alamat_laundry) {
 
     }
 
