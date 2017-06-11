@@ -93,7 +93,7 @@ public class MapsActivity extends AppCompatActivity
         final ProgressDialog pd = new ProgressDialog(MapsActivity.this);
         pd.setMessage("loading");
         pd.show();
-        DatabaseReference mDatabaseReference = FirebaseDatabase.getInstance().getReference("kosan");
+        DatabaseReference mDatabaseReference = FirebaseDatabase.getInstance().getReference("laundry");
         mDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
