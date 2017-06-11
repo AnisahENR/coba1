@@ -29,6 +29,12 @@
         <activity android:name=".MapsActivity"
             android:label="@string/title_activity_maps"
         android:parentActivityName=".MainActivity"></activity>
+        <activity
+            android:name=".LaundryActivity"
+            android:label="Laundry"></activity>
+        <activity
+            android:name=".TambahLaundryActivity"
+            android:label="Tambah Laundry"></activity>
     <meta-data
         android:name="android.support.PARENT_ACTIVITY"
         android:value=".MainActivity"/>
