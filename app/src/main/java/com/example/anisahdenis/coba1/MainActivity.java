@@ -13,7 +13,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.anisahdenis.coba1.fragment.BerandaFragment;
-import com.example.anisahdenis.coba1.fragment.NavCategoryFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -76,6 +75,10 @@ public class MainActivity extends AppCompatActivity
                 BerandaFragment berandaFragment = new BerandaFragment();
                 transaction.addToBackStack(null);
                 transaction.replace(R.id.fragment_contain, berandaFragment).commit();
+                break;
+            case R.id.nav_tambah_laundry:
+                Intent tambahLaundry = new Intent(this, TambahLaundryActivityBaru.class);
+                startActivity(tambahLaundry);
                 break;
             case R.id.nav_Category:
               //  fragment = new NavCategoryFragment();
