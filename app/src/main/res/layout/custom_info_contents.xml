@@ -1,20 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:layoutDirection="locale"
-android:orientation="vertical">
-<TextView
-    android:id="@+id/title"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:textColor="#ff000000"
-    android:textStyle="bold" />
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="20dp"
+    android:paddingTop="10dp"
+    >
 
-<TextView
-    android:id="@+id/snippet"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textColor="#ff7f7f7f" />
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textColor="@android:color/black"
+        android:id="@+id/nama_laundry"
+        android:text="laundry"
+        android:textSize="20dp"
+        />
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="7dp"
+        android:text="Alamat"
+        android:id="@+id/alamat_laundry"
+
+        />
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lihat Detail"
+        android:id="@+id/detail_laundry"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        android:background="@color/colorPrimary"
+        />
+
 </LinearLayout>

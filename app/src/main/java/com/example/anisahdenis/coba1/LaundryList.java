@@ -9,8 +9,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import static com.example.anisahdenis.coba1.R.id.parent;
-
 /**
  * Created by Anisah Denis on 6/9/2017.
  */
@@ -36,8 +34,8 @@ public class LaundryList extends ArrayAdapter<Laundry>{
         TextView textViewAlamatLaundry = (TextView) listViewItem.findViewById(R.id.textViewAlamatLaundry);
         Laundry laundry = laundryList.get(position);
 
-        textViewNamaLaundry.setText(laundry.getLaundry_nama());
-        textViewAlamatLaundry.setText(laundry.getLaundry_alamat());
+//        textViewNamaLaundry.setText(laundry.getLaundry_nama());
+//        textViewAlamatLaundry.setText(laundry.getLaundry_alamat());
         return listViewItem;
     }
     }

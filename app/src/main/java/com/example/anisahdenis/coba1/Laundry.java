@@ -6,19 +6,19 @@ package com.example.anisahdenis.coba1;
 
 public class Laundry {
     private String laundry_id;
-    private String laundry_nama;
-    private String laundry_alamat;
-    private Double latitude;
-    private Double longitude;
+    private String nama;
+    private String alamat;
+    private double latitude;
+    private double longitude;
 
-    public Laundry(String id, String nama_laundry, String alamat_laundry) {
+    public Laundry() {
 
     }
 
-    public Laundry(String laundry_id, String laundry_nama, String laundry_alamat, Double latitude, Double longitude) {
+    public Laundry(String laundry_id, String nama, String alamat, double latitude, double longitude) {
         this.laundry_id = laundry_id;
-        this.laundry_nama = laundry_nama;
-        this.laundry_alamat = laundry_alamat;
+        this.nama = nama;
+        this.alamat = alamat;
         this.latitude = latitude;
         this.longitude = longitude;
     }
@@ -27,19 +27,19 @@ public class Laundry {
         return laundry_id;
     }
 
-    public String getLaundry_nama() {
-        return laundry_nama;
+    public String getNama() {
+        return nama;
     }
 
-    public String getLaundry_alamat() {
-        return laundry_alamat;
+    public String getAlamat() {
+        return alamat;
     }
 
-    public Double getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public Double getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 }

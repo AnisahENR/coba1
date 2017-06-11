@@ -1,112 +1,127 @@
 package com.example.anisahdenis.coba1;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.pm.PackageManager;
+import android.location.Criteria;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.View;
-import android.widget.FrameLayout;
+import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+
 public class MapsActivity extends AppCompatActivity
-        implements OnMapReadyCallback,GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener{
+        implements OnMapReadyCallback,GoogleMap.OnMapClickListener,GoogleMap.OnMarkerClickListener{
 
-    private static final String TAG = MapsActivity.class.getSimpleName();
+
     private GoogleMap mMap;
-    Marker m;
-    private CameraPosition mCameraPosition;
+    private FirebaseAuth auth;
+    private Toolbar mActionBarToolbar;
+    private double my_lat;
+    private double my_long;
 
-    // The entry point to Google Play services, used by the Places API and Fused Location Provider.
-    private GoogleApiClient mGoogleApiClient;
-
-    // A default location (Sydney, Australia) and default zoom to use when location permission is
-    // not granted.
-    private final LatLng mDefaultLocation = new LatLng(-33.8523341, 151.2106085);
-    private static final int DEFAULT_ZOOM = 15;
-    private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
-    private boolean mLocationPermissionGranted;
-
-    // The geographical location where the device is currently located. That is, the last-known
-    // location retrieved by the Fused Location Provider.
-    private Location mLastKnownLocation;
-
-    // Keys for storing activity state.
-    private static final String KEY_CAMERA_POSITION = "camera_position";
-    private static final String KEY_LOCATION = "location";
+    private HashMap<Marker,Laundry> mHashMap = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (savedInstanceState != null) {
-            mLastKnownLocation = savedInstanceState.getParcelable(KEY_LOCATION);
-            mCameraPosition = savedInstanceState.getParcelable(KEY_CAMERA_POSITION);
-        }
         setContentView(R.layout.activity_maps);
 
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this /* FragmentActivity */,
-                        this /* OnConnectionFailedListener */)
-                .addConnectionCallbacks(this)
-                .addApi(LocationServices.API)
-                //.addApi(Places.GEO_DATA_API)
-                //.addApi(Places.PLACE_DETECTION_API)
-                .build();
-        mGoogleApiClient.connect();
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
-    /**
-     * Builds the map when the Google Play services client is successfully connected.
-     */
-
-    @Override
-    public void onConnected(Bundle connectionHint) {
-        // Build the map.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-    }
-    /**
-     * Handles suspension of the connection to the Google Play services client.
-     */
-    @Override
-    public void onConnectionSuspended(int cause) {
-        Log.d(TAG, "Play services connection suspended");
+
+        mActionBarToolbar = (Toolbar) findViewById(R.id.toolbar);
+
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    /**
-     * Handles failure to connect to the Google Play services client.
-     */
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult result) {
-        // Refer to the reference doc for ConnectionResult to see what error codes might
-        // be returned in onConnectionFailed.
-        Log.d(TAG, "Play services connection failed: ConnectionResult.getErrorCode() = "
-                + result.getErrorCode());
+    private void setLokasiSaya() {
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        Criteria criteria = new Criteria();
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        Location location = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
+        LatLng sydney;
+        if (location != null) {
+            my_lat = location.getLatitude();
+            my_long = location.getLongitude();
+            sydney = new LatLng(my_lat, my_long);
+        } else {
+            sydney = new LatLng(-34, 151);
+        }
+        mMap.setMyLocationEnabled(true);
+
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 16));
+
+        mMap.setOnMapClickListener(this);
+        mMap.setOnMarkerClickListener(this);
+        showMarker();
     }
+
+    private void showMarker(){
+
+        final ProgressDialog pd = new ProgressDialog(MapsActivity.this);
+        pd.setMessage("loading");
+        pd.show();
+        DatabaseReference mDatabaseReference = FirebaseDatabase.getInstance().getReference("kosan");
+        mDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot userSnpashot : dataSnapshot.getChildren()) {
+                    Laundry laundry = userSnpashot.getValue(Laundry.class);
+                    LatLng markerLokasi = new LatLng(laundry.getLatitude(), laundry.getLongitude());
+                    Marker marker = mMap.addMarker(
+                            new MarkerOptions().position(markerLokasi)
+                    );
+
+                    mHashMap.put(marker, laundry);
+
+                }
+
+                pd.dismiss();
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+
 
     /**
      * Manipulates the map when it's available.
@@ -116,194 +131,38 @@ public class MapsActivity extends AppCompatActivity
     public void onMapReady(GoogleMap map) {
         mMap = map;
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = database.getReference("laundry");
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
-                    Laundry laundry = postSnapshot.getValue(Laundry.class);
+//        FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        DatabaseReference databaseReference = database.getReference("laundry");
+//        databaseReference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
+//                    Laundry laundry = postSnapshot.getValue(Laundry.class);
+
+       setLokasiSaya();
 
 
-//                    Double latitude = (Double)postSnapshot.child("latitude").getValue();
-//                    Double longitude = (Double)postSnapshot.child("longitude").getValue();
-//                    String alamat = (String)postSnapshot.child("laundry_alamat").getValue();
-//                    String name = (String)postSnapshot.child("laundry_nama").getValue();
-//
-//                    if (latitude!=null&&longitude!=null){
-//                        m = mMap.addMarker(new MarkerOptions().position(new LatLng(latitude,longitude)).title(name).snippet(alamat));
-//                    }
-
-                    m = mMap.addMarker(new MarkerOptions().position(new LatLng(-7.9519712,112.6113408)).title(laundry.getLaundry_nama()).snippet(laundry.getLaundry_alamat()));
-                }
-
-//                LatLng newLocation = new LatLng(
-//                        dataSnapshot.child("latitude").getValue(Double.class),
-//                        dataSnapshot.child("longitude").getValue(Double.class)
-//                );
-
-
-//                m = mMap.addMarker(new MarkerOptions()
-//                        .position(newLocation));
-//                        .title(dataSnapshot.child("laundry_alamat").getValue(String.class))
-//                        .snippet(dataSnapshot.child("laundry_nama").getValue(String.class)));
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-//        m = mMap.addMarker(new MarkerOptions()
-//                .position(new LatLng(-7.9519712,112.6113408))
-//                .title("Univ Brawijaya")
-//                .snippet("Jalan Veteran"));
-//
-//        m = mMap.addMarker(new MarkerOptions()
-//                .position(new LatLng(-7.9824459,112.6143983))
-//                .title("sesuatu")
-//                .snippet("Jalan Veteran"));
-        // Use a custom info window adapter to handle multiple lines of text in the
-        // info window contents.
-        mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
-
-            @Override
-            // Return null here, so that getInfoContents() is called next.
-            public View getInfoWindow(Marker arg0) {
-                return null;
-            }
-
-            @Override
-            public View getInfoContents(Marker marker) {
-                // Inflate the layouts for the info window, title and snippet.
-                View infoWindow = getLayoutInflater().inflate(R.layout.custom_info_contents,
-                        (FrameLayout)findViewById(R.id.map), false);
-
-                TextView title = ((TextView) infoWindow.findViewById(R.id.title));
-                title.setText(marker.getTitle());
-
-                TextView snippet = ((TextView) infoWindow.findViewById(R.id.snippet));
-                snippet.setText(marker.getSnippet());
-
-                return infoWindow;
-            }
-        });
-
-        m = mMap.addMarker(new MarkerOptions().position(mDefaultLocation));
-        // Turn on the My Location layer and the related control on the map.
-        updateLocationUI();
-
-        // Get the current location of the device and set the position of the map.
-        getDeviceLocation();
     }
 
-    /**
-     * Gets the current location of the device, and positions the map's camera.
-     */
-    private void getDeviceLocation() {
-        /*
-         * Request location permission, so that we can get the location of the
-         * device. The result of the permission request is handled by a callback,
-         * onRequestPermissionsResult.
-         */
-        if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
-                android.Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
-            mLocationPermissionGranted = true;
-        } else {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
-                    PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
-        }
-        /*
-         * Get the best and most recent location of the device, which may be null in rare
-         * cases when a location is not available.
-         */
-        if (mLocationPermissionGranted) {
-            mLastKnownLocation = LocationServices.FusedLocationApi
-                    .getLastLocation(mGoogleApiClient);
-
-            m.setVisible(true);
-            m.setPosition(new LatLng(mLastKnownLocation.getLatitude()
-                    ,mLastKnownLocation.getLongitude()));
-            m.setTitle(mLastKnownLocation.getLatitude()+ "");
-            m.setSnippet(mLastKnownLocation.getLongitude() + "");
-        }
-
-        // Set the map's camera position to the current location of the device.
-        if (mCameraPosition != null) {
-            mMap.moveCamera(CameraUpdateFactory.newCameraPosition(mCameraPosition));
-        } else if (mLastKnownLocation != null) {
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
-                    new LatLng(mLastKnownLocation.getLatitude(),
-                            mLastKnownLocation.getLongitude()), DEFAULT_ZOOM));
-        } else {
-            Log.d(TAG, "Current location is null. Using defaults.");
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mDefaultLocation, DEFAULT_ZOOM));
-            mMap.getUiSettings().setMyLocationButtonEnabled(false);
-        }
-    }
-
-    /**
-     * Handles the result of the request for location permissions.
-     */
     @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           @NonNull String permissions[],
-                                           @NonNull int[] grantResults) {
-        mLocationPermissionGranted = false;
-        switch (requestCode) {
-            case PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION: {
-                // If request is cancelled, the result arrays are empty.
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    mLocationPermissionGranted = true;
-                }
-            }
-        }
-        updateLocationUI();
+    public void onMapClick(LatLng latLng) {
+
     }
 
-    /**
-     * Prompts the user to select the current place from a list of likely places, and shows the
-     * current place on the map - provided the user has granted location permission.
-     */
 
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        final Laundry laundry = this.mHashMap.get(marker);
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.custom_info_contents);
+        TextView nama_laundry = (TextView)dialog.findViewById(R.id.nama_laundry);
+        TextView alamat_laundry = (TextView)dialog.findViewById(R.id.alamat_laundry);
+        nama_laundry.setText(laundry.getNama());
+        alamat_laundry.setText(laundry.getAlamat());
 
-    /**
-     * Updates the map's UI settings based on whether the user has granted location permission.
-     */
-    private void updateLocationUI() {
-        if (mMap == null) {
-            return;
-        }
+        dialog.show();
+        //lanjutin buat button ke detail laundry
 
-        /*
-         * Request location permission, so that we can get the location of the
-         * device. The result of the permission request is handled by a callback,
-         * onRequestPermissionsResult.
-         */
-        if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
-                android.Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
-            //
-            mLocationPermissionGranted = true;
-        } else {
-
-            ActivityCompat.requestPermissions(this,
-                    new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
-                    PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
-        }
-
-        if (mLocationPermissionGranted) {
-            mMap.setMyLocationEnabled(true);
-            mMap.getUiSettings().setMyLocationButtonEnabled(true);
-        } else {
-            mMap.setMyLocationEnabled(false);
-            mMap.getUiSettings().setMyLocationButtonEnabled(false);
-            mLastKnownLocation = null;
-        }
+        return false;
     }
 }

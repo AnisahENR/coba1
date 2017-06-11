@@ -3,7 +3,6 @@ package com.example.anisahdenis.coba1;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -82,24 +81,24 @@ public class TambahLaundryActivity extends AppCompatActivity {
         //membuat database laundry yang mempunyai relasi dengan id_kategori
         databaseLaundry = FirebaseDatabase.getInstance().getReference("laundry").child(id_kategori);
 
-        btTambahLaundry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tambahLaundry();
-            }
-        });
+//        btTambahLaundry.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                tambahLaundry();
+//            }
+//        });
 
 
     }
 
-    public void tambahLaundry() {
-        String nama_laundry = editTextNamaLaundry.getText().toString();
-        String alamat_laundry = editTextAlamatLaundry.getText().toString();
-
-        //disini proses untuk menambah ke databasenya
-        String id = databaseLaundry.push().getKey(); // set id otomatis dari firebase
-        Laundry laundry = new Laundry(id , nama_laundry , alamat_laundry); //membuat objek yang akan disimpan
-        databaseLaundry.child(id).setValue(laundry); //insert ke databasenya deh
-
-    }
+//    public void tambahLaundry() {
+//        String nama_laundry = editTextNamaLaundry.getText().toString();
+//        String alamat_laundry = editTextAlamatLaundry.getText().toString();
+//
+//        //disini proses untuk menambah ke databasenya
+//        String id = databaseLaundry.push().getKey(); // set id otomatis dari firebase
+//        Laundry laundry = new Laundry(id , nama_laundry , alamat_laundry); //membuat objek yang akan disimpan
+//        databaseLaundry.child(id).setValue(laundry); //insert ke databasenya deh
+//
+//    }
 }
