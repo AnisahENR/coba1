@@ -1,0 +1,31 @@
+{
+  "kategori" : {
+    "-KlUW1YkNS0PedEe3bv8" : {
+      "kategori_id" : "-KlUW1YkNS0PedEe3bv8",
+      "kategori_nama" : "Pakaian"
+    },
+    "-KlUW3DpIii4anY_w8dN" : {
+      "kategori_id" : "-KlUW3DpIii4anY_w8dN",
+      "kategori_nama" : "Sepatu"
+    },
+    "-KlUW3xk3hBcLvs5RStv" : {
+      "kategori_id" : "-KlUW3xk3hBcLvs5RStv",
+      "kategori_nama" : "Boneka"
+    },
+    "-KlUW4jmV6frM0FuJ0Uf" : {
+      "kategori_id" : "-KlUW4jmV6frM0FuJ0Uf",
+      "kategori_nama" : "Karpet"
+    }
+  },
+  "laundry" : {
+    "-KlUW1YkNS0PedEe3bv8" : {
+      "-KlXIOvfmZjsRPl6WMNt" : {
+        "latitude" : -7.9519712,
+        "laundry_alamat" : "Jl. Bunga Kumis Kucing no.7",
+        "laundry_id" : "-KlXIOvfmZjsRPl6WMNt",
+        "laundry_nama" : "Briliant Laundry",
+        "longitude" : 112.6113408
+      }
+    }
+  }
+}
