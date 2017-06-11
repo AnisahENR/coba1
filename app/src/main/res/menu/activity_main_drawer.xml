@@ -7,6 +7,10 @@
             android:icon="@drawable/ic_action_home"
             android:title="Beranda" />
         <item
+            android:id="@+id/nav_tambah_laundry"
+            android:icon="@drawable/ic_action_home"
+            android:title="Tambah Laundry" />
+        <item
             android:id="@+id/nav_Category"
             android:icon="@drawable/ic_action_tags"
             android:title="Kategori" />
