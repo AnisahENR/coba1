@@ -1,0 +1,22 @@
+{
+  "laundry" : {
+    "-KmKWHkIeHkrMdHaGRSK" : {
+      "alamat" : "jalan yang lurus",
+      "latitude" : -8.0237401,
+      "laundry_id" : "-KmKWHkIeHkrMdHaGRSK",
+	  "longitude" : 112.6274015,
+      "nama" : "Pak. Nur",
+      "telpon" : "082234652727",
+	  "website"	:	"mukegile"
+    },
+	"-KmL2nSES5BgvitN3h8s" : {
+      "alamat" : "Jl. Kalpataru V, Jatimulyo, Kec. Lowokwaru, Kota Malang, Jawa Timur 65141, Indonesia",
+      "latitude" : -7.948185,
+      "laundry_id" : "-KmL2nSES5BgvitN3h8s",
+      "longitude" : 112.6204128,
+      "nama" : "Yayaya Laundry",
+      "telpon" : "Ga Ada",
+      "website" : "01715191"
+    }
+  }
+}
