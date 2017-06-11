@@ -1,0 +1,22 @@
+{
+  "laundry" : {
+    "-KmKzEOeDKnFrng_OTOc" : {
+      "alamat" : "Jl. Bunga Kumis Kucing, Jatimulyo, Kec. Lowokwaru, Kota Malang, Jawa Timur 65141, Indonesia",
+      "latitude" : -7.950818,
+      "laundry_id" : "-KmKzEOeDKnFrng_OTOc",
+      "longitude" : 112.6196039,
+      "nama" : "Brilliant Laundry",
+      "telpon" : "ga ada",
+      "website" : "03415567890"
+    },
+    "-KmL2nSES5BgvitN3h8s" : {
+      "alamat" : "Jl. Kalpataru V, Jatimulyo, Kec. Lowokwaru, Kota Malang, Jawa Timur 65141, Indonesia",
+      "latitude" : -7.949839900000001,
+      "laundry_id" : "-KmL2nSES5BgvitN3h8s",
+      "longitude" : 112.62706019999999,
+      "nama" : "Yayaya Laundry",
+      "telpon" : "Ga Ada",
+      "website" : "01715191"
+    }
+  }
+}
