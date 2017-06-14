@@ -2,13 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
+        <item android:title="Menu">
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_action_home"
             android:title="Beranda" />
         <item
             android:id="@+id/nav_tambah_laundry"
-            android:icon="@drawable/ic_action_home"
+            android:icon="@drawable/ic_playlist_add"
             android:title="Tambah Laundry" />
         <item
             android:id="@+id/nav_Category"
@@ -18,18 +19,11 @@
             android:id="@+id/nav_maps"
             android:icon="@drawable/ic_action_location"
             android:title="Maps" />
+        </item>
     </group>
 
-    <item android:title="Tentang">
+    <item android:title="Sign Out">
         <menu>
-            <item
-                android:id="@+id/nav_aboutApp"
-                android:icon="@drawable/ic_perm_device_information"
-                android:title="Tentang Aplikasi" />
-            <item
-                android:id="@+id/nav_aboutUs"
-                android:icon="@drawable/ic_action_users"
-                android:title="Tentang Kami" />
             <item
                 android:id="@+id/signout"
                 android:icon="@drawable/menu_logout"
