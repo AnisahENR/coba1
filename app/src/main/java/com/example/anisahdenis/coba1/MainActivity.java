@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.anisahdenis.coba1.fragment.BerandaFragment;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -95,6 +96,14 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_aboutApp:
                 break;
             case R.id.nav_aboutUs:
+                break;
+            case R.id.signout:
+                FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+                firebaseAuth.signOut();
+                Intent intentLogout = new Intent(this, AutentifikasiActivity.class);
+                intentLogout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentLogout);
+                break;
         }
 
 //        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

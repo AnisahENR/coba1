@@ -17,30 +17,41 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".ScreenSplashActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".LaundryActivity"
+            android:label="Laundry" />
+        <activity
+            android:name=".TambahLaundryActivity"
+            android:label="Tambah Laundry" />
+        <activity android:name=".TambahLaundryActivityBaru" />
+
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity android:name=".AutentifikasiActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
-        <activity
-            android:name=".ScreenSplashActivity"
-            android:label="@string/app_name"></activity>
-        <activity android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"
-        android:parentActivityName=".MainActivity"></activity>
-        <activity
-            android:name=".LaundryActivity"
-            android:label="Laundry"></activity>
-        <activity
-            android:name=".TambahLaundryActivity"
-            android:label="Tambah Laundry"></activity>
-    <meta-data
-        android:name="android.support.PARENT_ACTIVITY"
-        android:value=".MainActivity"/>
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+
+        <activity android:name=".ResetPasswordActivity"></activity>
     </application>
 
 </manifest>

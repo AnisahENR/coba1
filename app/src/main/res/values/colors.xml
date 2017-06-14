@@ -5,4 +5,7 @@
     <color name="colorAccent">#7a007d</color>
     <color name="mine">#109d58</color>
     <color name="newcol">#00d567</color>
+    <color name="grey_dark">#ffe0e0e0</color>
+    <color name="white">#ffffff</color>
+    <color name="bg_login">#26ae90</color>
 </resources>

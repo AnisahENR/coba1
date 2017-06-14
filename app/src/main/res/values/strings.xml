@@ -9,4 +9,19 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_maps">Peta Laundry</string>
+
+    <string name="btn_login">LOGIN</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Sandi Anda</string>
+    <string name="btn_forgot_password">Lupa Sandi Anda?</string>
+    <string name="action_sign_in_short">Register</string>
+    <string name="email">Email</string>
+    <string name="btn_reset_password">Reset Sandi</string>
+    <string name="btn_back"><![CDATA[<< Kembali]]></string>
+
+    <string name="lbl_forgot_password">Lupa Sandi?</string>
+    <string name="forgot_password_msg">Kami membutuhkan email anda yang terdaftar untuk mengirimkan instruksi reset sandi.</string>
+    <string name="minimum_password">Sandi terlalu pendek, input minimal 6 karakter</string>
+    <string name="auth_failed">Login gagal, silahkan cek email atau sandi anda</string>
+
 </resources>
