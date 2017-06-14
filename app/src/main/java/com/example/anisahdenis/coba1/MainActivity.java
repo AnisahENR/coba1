@@ -93,10 +93,6 @@ public class MainActivity extends AppCompatActivity
                 Intent intent = new Intent(this, MapsActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.nav_aboutApp:
-                break;
-            case R.id.nav_aboutUs:
-                break;
             case R.id.signout:
                 FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
                 firebaseAuth.signOut();

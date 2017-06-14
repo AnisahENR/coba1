@@ -1,35 +1,35 @@
 {
   "project_info": {
-    "project_number": "779754959838",
-    "firebase_url": "https://papbl-maps.firebaseio.com",
-    "project_id": "papbl-maps",
-    "storage_bucket": "papbl-maps.appspot.com"
+    "project_number": "142231748497",
+    "firebase_url": "https://newtrial-ac895.firebaseio.com",
+    "project_id": "newtrial-ac895",
+    "storage_bucket": "newtrial-ac895.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:779754959838:android:c6220fe5ca737cec",
+        "mobilesdk_app_id": "1:142231748497:android:3543a894a661d7ee",
         "android_client_info": {
-          "package_name": "winona.indira.ilo"
+          "package_name": "com.example.indiwinona.myapplication"
         }
       },
       "oauth_client": [
         {
-          "client_id": "779754959838-b4hb9d6c0ser2sr7jsqo8gf7krbto1sd.apps.googleusercontent.com",
+          "client_id": "142231748497-rkisimjpve854dur6u6v8iqmfe6sgned.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "winona.indira.ilo",
-            "certificate_hash": "e24aee543ad712632d44166a6fdebaa11c6dcc00"
+            "package_name": "com.example.indiwinona.myapplication",
+            "certificate_hash": "d9423048f3de4ea24e13739a048a86c44baac692"
           }
         },
         {
-          "client_id": "779754959838-eklqk80ofkg3uke1rnq1tqqe8iu73l4t.apps.googleusercontent.com",
+          "client_id": "142231748497-v2dc21vm6apmme12tvth0dk5lrbb90fa.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAXuazdNtBoWJN96Qvmezh7_swn9SZPCnE"
+          "current_key": "AIzaSyBN3bJlujO3G2IXXXXSR0C2r9DRbQolL20"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "779754959838-eklqk80ofkg3uke1rnq1tqqe8iu73l4t.apps.googleusercontent.com",
+              "client_id": "142231748497-v2dc21vm6apmme12tvth0dk5lrbb90fa.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
@@ -52,28 +52,28 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:779754959838:android:011bda441fe3f9ba",
+        "mobilesdk_app_id": "1:142231748497:android:011bda441fe3f9ba",
         "android_client_info": {
           "package_name": "com.example.anisahdenis.coba1"
         }
       },
       "oauth_client": [
         {
-          "client_id": "779754959838-2ivct3re9gjul73ni1t46jroj6r6mr2q.apps.googleusercontent.com",
+          "client_id": "142231748497-a4ss4eo27b6rcorcabekpj53f8gd6n2l.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.anisahdenis.coba1",
-            "certificate_hash": "e24aee543ad712632d44166a6fdebaa11c6dcc00"
+            "certificate_hash": "d9423048f3de4ea24e13739a048a86c44baac692"
           }
         },
         {
-          "client_id": "779754959838-eklqk80ofkg3uke1rnq1tqqe8iu73l4t.apps.googleusercontent.com",
+          "client_id": "142231748497-v2dc21vm6apmme12tvth0dk5lrbb90fa.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAXuazdNtBoWJN96Qvmezh7_swn9SZPCnE"
+          "current_key": "AIzaSyBN3bJlujO3G2IXXXXSR0C2r9DRbQolL20"
         }
       ],
       "services": {
@@ -84,7 +84,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "779754959838-eklqk80ofkg3uke1rnq1tqqe8iu73l4t.apps.googleusercontent.com",
+              "client_id": "142231748497-v2dc21vm6apmme12tvth0dk5lrbb90fa.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
