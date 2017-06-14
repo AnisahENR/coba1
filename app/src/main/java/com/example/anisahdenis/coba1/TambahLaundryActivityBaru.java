@@ -66,16 +66,17 @@ public class TambahLaundryActivityBaru extends AppCompatActivity {
         String website_laundry = website.getText().toString();
         String telpon_laundry = telpon.getText().toString();
         String id_laundry = databaseLaundry.push().getKey();
-        Laundry laundry = new Laundry(id_laundry, nama_laundry, alamat_laundry, latitude, longitude, website_laundry, telpon_laundry);
+        Laundry laundry = new Laundry(id_laundry, nama_laundry, alamat_laundry, latitude, longitude, telpon_laundry, website_laundry);
         databaseLaundry.child(id_laundry).setValue(laundry);
 
         Toast.makeText(TambahLaundryActivityBaru.this,
-                "Add Data Berhasil",
+                "Data Laundry Berhasil Ditambahkan",
                 Toast.LENGTH_LONG)
                 .show();
+        Intent intent = new Intent(TambahLaundryActivityBaru.this, MapsActivity.class);
+        startActivity(intent);
 
     }
-
 
 
     private void requestPermission() {
