@@ -9,4 +9,6 @@
     <dimen name="appbar_padding_top">8dp</dimen>
     <dimen name="logo_h">130dp</dimen>
     <dimen name="logo_w">200dp</dimen>
+    <dimen name="logo_h2">65dp</dimen>
+    <dimen name="logo_w2">100dp</dimen>
 </resources>

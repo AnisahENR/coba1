@@ -8,4 +8,7 @@
     <color name="grey_dark">#ffe0e0e0</color>
     <color name="white">#ffffff</color>
     <color name="bg_login">#26ae90</color>
+    <color name="grey">#4B4456</color>
+    <color name="light_grey">#E5E5E5</color>
+    <color name="light_blue">#5dbcd2</color>
 </resources>
