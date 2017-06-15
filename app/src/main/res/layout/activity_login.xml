@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="@color/grey_dark"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="@dimen/activity_horizontal_margin">
-
+    style="@style/AppTheme.NoActionBar"
+    android:orientation="vertical"
+    android:padding="26dp"
+    android:background="@drawable/backg2"
+    android:theme="@style/AppTheme.NoActionBar">
 
         <ImageView
             android:layout_width="@dimen/logo_w"
             android:layout_height="@dimen/logo_h"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="40dp"
             android:layout_marginBottom="30dp"
             android:src="@drawable/ilologo" />
 
@@ -32,10 +27,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:gravity="center"
                 android:hint="@string/hint_email"
                 android:inputType="textEmailAddress"
-                android:textColor="@color/colorPrimaryDark"
-                android:textColorHint="@android:color/white" />
+                android:textColor="@color/white"
+                android:textColorHint="@android:color/darker_gray" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -47,10 +43,11 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:gravity="center"
                 android:hint="@string/hint_password"
                 android:inputType="textPassword"
-                android:textColor="@color/colorPrimaryDark"
-                android:textColorHint="@android:color/white" />
+                android:textColor="@color/white"
+                android:textColorHint="@android:color/darker_gray" />
         </android.support.design.widget.TextInputLayout>
 
         <!-- Login Button -->
@@ -60,10 +57,9 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/round_but"
             android:text="@string/btn_login"
-            android:textColor="@android:color/white" />
-
+            android:textColor="@color/colorPrimary"/>
         <Button
             android:id="@+id/btn_reset_password"
             android:layout_width="fill_parent"
@@ -72,9 +68,7 @@
             android:background="@null"
             android:text="@string/btn_forgot_password"
             android:textAllCaps="false"
-            android:textColor="@color/colorPrimaryDark" />
-
-    </LinearLayout>
+            android:textColor="@color/white" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -83,4 +77,4 @@
         android:layout_gravity="center|bottom"
         android:layout_marginBottom="20dp"
         android:visibility="gone" />
-</android.support.design.widget.CoordinatorLayout>
+</LinearLayout>
