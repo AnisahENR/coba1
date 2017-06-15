@@ -81,14 +81,6 @@ public class MainActivity extends AppCompatActivity
                 Intent tambahLaundry = new Intent(this, TambahLaundryActivityBaru.class);
                 startActivity(tambahLaundry);
                 break;
-            case R.id.nav_Category:
-              //  fragment = new NavCategoryFragment();
-              /*  NavCategoryFragment navCategoryFragment = new NavCategoryFragment();
-                transaction.addToBackStack(NavCategoryFragment.class.getName());
-                transaction.replace(R.id.fragment_contain, navCategoryFragment).commit();*/
-                Intent kategori = new Intent(this, LaundryActivity.class);
-                startActivity(kategori);
-                break;
             case R.id.nav_maps:
                 Intent intent = new Intent(this, MapsActivity.class);
                 startActivity(intent);

@@ -12,10 +12,6 @@
             android:icon="@drawable/ic_playlist_add"
             android:title="Tambah Laundry" />
         <item
-            android:id="@+id/nav_Category"
-            android:icon="@drawable/ic_action_tags"
-            android:title="Kategori" />
-        <item
             android:id="@+id/nav_maps"
             android:icon="@drawable/ic_action_location"
             android:title="Maps" />
