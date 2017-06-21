@@ -33,7 +33,7 @@
             android:name=".TambahLaundryActivity"
             android:label="Tambah Laundry" />
         <activity android:name=".TambahLaundryActivityBaru"
-            android:label="Tambah Data Laundry"/>
+            android:theme="@style/AppTheme.NoActionBar"/>
 
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
@@ -52,7 +52,8 @@
 
         </activity>
 
-        <activity android:name=".ResetPasswordActivity"></activity>
+        <activity android:name=".ResetPasswordActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

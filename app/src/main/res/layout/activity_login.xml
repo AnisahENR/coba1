@@ -6,70 +6,83 @@
     android:layout_height="match_parent"
     style="@style/AppTheme.NoActionBar"
     android:orientation="vertical"
-    android:padding="26dp"
     android:background="@drawable/backg2"
     android:theme="@style/AppTheme.NoActionBar">
 
-    <ImageView
-        android:layout_width="@dimen/logo_w"
-        android:layout_height="@dimen/logo_h"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="30dp"
-        android:src="@drawable/ilologo" />
-
-    <EditText
-        android:background="@drawable/round_field"
-        android:padding="10dp"
-        android:id="@+id/email"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:gravity="center"
-        android:hint="@string/hint_email"
-        android:inputType="textEmailAddress"
-        android:textColor="@color/colorPrimary"
-        android:textColorHint="@android:color/darker_gray" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="16dp">
+        <ImageView
+            android:layout_width="@dimen/logo_w"
+            android:layout_height="@dimen/logo_h"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="30dp"
+            android:src="@drawable/ilologo" />
 
-    <EditText
-        android:background="@drawable/round_field"
-        android:padding="10dp"
-        android:id="@+id/password"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:gravity="center"
-        android:hint="@string/hint_password"
-        android:inputType="textPassword"
-        android:textColor="@color/colorPrimary"
-        android:textColorHint="@android:color/darker_gray" />
+        <EditText
+            android:background="@drawable/round_field"
+            android:padding="10dp"
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:hint="@string/hint_email"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/light_blue"
+            android:textColorHint="@android:color/darker_gray" />
 
-    <!-- Login Button -->
+        <EditText
+            android:background="@drawable/round_field"
+            android:padding="10dp"
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:hint="@string/hint_password"
+            android:inputType="textPassword"
+            android:textColor="@color/light_blue"
+            android:textColorHint="@android:color/darker_gray" />
 
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dip"
-        android:background="@drawable/round_but"
-        android:text="@string/btn_login"
-        android:textColor="@color/white"/>
-    <Button
-        android:id="@+id/btn_reset_password"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@null"
-        android:text="@string/btn_forgot_password"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:gravity="center|top"/>
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_gravity="center|bottom"
-        android:layout_marginBottom="20dp"
-        android:visibility="gone" />
+        <Button
+            android:id="@+id/btn_reset_password"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@null"
+            android:text="@string/btn_forgot_password"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:gravity="right|top"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center|bottom"
+            android:layout_marginBottom="20dp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".125"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/blue"
+            android:text="@string/btn_login"
+            android:textColor="@color/white"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
 </LinearLayout>

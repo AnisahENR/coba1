@@ -17,7 +17,7 @@
     <string name="action_sign_in_short">Register</string>
     <string name="email">Email</string>
     <string name="btn_reset_password">Reset Sandi</string>
-    <string name="btn_back"><![CDATA[<< Kembali]]></string>
+    <string name="btn_back"><![CDATA[Kembali]]></string>
 
     <string name="lbl_forgot_password">Lupa Sandi?</string>
     <string name="forgot_password_msg">Kami membutuhkan email anda yang terdaftar untuk mengirimkan instruksi reset sandi.</string>
