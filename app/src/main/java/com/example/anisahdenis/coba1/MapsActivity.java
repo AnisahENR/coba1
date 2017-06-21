@@ -174,8 +174,9 @@ public class MapsActivity extends AppCompatActivity
             public void onClick(View v) {
                 Intent intent = new Intent(MapsActivity.this, DetailLaundryActivity.class);
                 startActivity(intent);
-
-                /*nama = (TextView) findViewById(R.id.tv_nama);
+/*
+                setContentView(R.layout.activity_detail_laundry);
+                nama = (TextView) findViewById(R.id.tv_nama);
                 alamat = (TextView) findViewById(R.id.tv_addr);
                 notel = (TextView) findViewById(R.id.tv_notel);
                 website = (TextView) findViewById(R.id.tv_web);
