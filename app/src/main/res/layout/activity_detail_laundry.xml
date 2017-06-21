@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/backg2"
+    android:fitsSystemWindows="true"
+    android:theme="@style/AppTheme.NoActionBar"
+    style="@style/AppTheme.NoActionBar"
+    android:orientation="vertical"
+    tools:context="com.example.anisahdenis.coba1.ResetPasswordActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".15"
+        android:paddingLeft="16dp"
+        android:paddingTop="10dp">
+        <ImageButton
+            android:background="@null"
+            android:id="@+id/btn_back3"
+            android:layout_width="30dp"
+            android:layout_height="fill_parent"
+            android:src="@drawable/ic_arrow_back"
+            android:layout_gravity="center_vertical"/>
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:id="@+id/btn_back"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="Detail Info Laundry"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:textSize="18dp"
+            android:textColor="@color/white" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".6"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="@dimen/logo_w2"
+            android:layout_height="@dimen/logo_h"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ilologo" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="Informasi Laundry Online"
+            android:gravity="center"
+            android:textSize="15dp"/>
+      </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp"
+        android:background="@color/grey_dark"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight=".25"
+                android:layout_height="wrap_content"
+                android:text="Nama Laundry      :"
+                android:textColor="@color/colorPrimary"/>
+            <TextView
+                android:id="@+id/tv_nama"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:text="nama laundry"
+                android:lines="2"
+                android:textColor="@color/light_blue"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight=".25"
+                android:layout_height="wrap_content"
+                android:text="Nomor Telepon    :"
+                android:textColor="@color/colorPrimary"/>
+            <TextView
+                android:id="@+id/tv_notel"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:text="nomor telepon"
+                android:lines="2"
+                android:textColor="@color/light_blue"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight=".25"
+                android:layout_height="wrap_content"
+                android:text="Alamat Laundry    :"
+                android:textColor="@color/colorPrimary"/>
+            <TextView
+                android:id="@+id/tv_addr"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:text="alamat laundry"
+                android:lines="5"
+                android:textColor="@color/light_blue"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight=".25"
+                android:layout_height="wrap_content"
+                android:text="Website Laundry  :"
+                android:textColor="@color/colorPrimary"/>
+            <TextView
+                android:id="@+id/tv_web"
+                android:layout_width="0dp"
+                android:layout_weight=".5"
+                android:layout_height="wrap_content"
+                android:text="website laundry"
+                android:lines="2"
+                android:textColor="@color/light_blue"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

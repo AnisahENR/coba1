@@ -3,6 +3,7 @@ package com.example.anisahdenis.coba1;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.Location;
@@ -11,6 +12,8 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -38,6 +41,8 @@ public class MapsActivity extends AppCompatActivity
     private Toolbar mActionBarToolbar;
     private double my_lat;
     private double my_long;
+
+    private TextView nama, alamat, notel, website;
 
     private HashMap<Marker,Laundry> mHashMap = new HashMap<>();
 
@@ -154,15 +159,33 @@ public class MapsActivity extends AppCompatActivity
     public boolean onMarkerClick(Marker marker) {
         final Laundry laundry = this.mHashMap.get(marker);
         final Dialog dialog = new Dialog(this);
+
         dialog.setContentView(R.layout.custom_info_contents);
         TextView nama_laundry = (TextView)dialog.findViewById(R.id.nama_laundry);
-        TextView alamat_laundry = (TextView)dialog.findViewById(R.id.alamat_laundry);
         nama_laundry.setText(laundry.getNama());
-        alamat_laundry.setText(laundry.getAlamat());
 
         dialog.show();
-        //lanjutin buat button ke detail laundry
 
+        //button detail laundry
+
+        Button detail_laundrybut = (Button) dialog.findViewById(R.id.detail_laundry);
+        detail_laundrybut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MapsActivity.this, DetailLaundryActivity.class);
+                startActivity(intent);
+
+                /*nama = (TextView) findViewById(R.id.tv_nama);
+                alamat = (TextView) findViewById(R.id.tv_addr);
+                notel = (TextView) findViewById(R.id.tv_notel);
+                website = (TextView) findViewById(R.id.tv_web);
+
+                nama.setText(laundry.getNama());
+                alamat.setText(laundry.getAlamat());
+                notel.setText(laundry.getTelpon());
+                website.setText(laundry.getWebsite());*/
+            }
+        });
         return false;
     }
 }

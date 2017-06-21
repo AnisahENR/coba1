@@ -5,28 +5,26 @@
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:paddingBottom="20dp"
-    android:paddingTop="10dp"
-    >
+    android:paddingTop="10dp">
 
     <TextView
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:id="@+id/nama_laundry"
         android:text="laundry"
-        android:textSize="20dp"
-        />
-    <TextView
+        android:textSize="20dp"/>
+
+ <!--   <TextView
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="7dp"
         android:text="Alamat"
-        android:id="@+id/alamat_laundry"
+        android:id="@+id/alamat_laundry"/> -->
 
-        />
     <Button
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"

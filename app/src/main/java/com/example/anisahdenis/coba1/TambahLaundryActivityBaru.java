@@ -7,9 +7,11 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
@@ -23,7 +25,7 @@ import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
 public class TambahLaundryActivityBaru extends AppCompatActivity {
     private EditText nama, alamat, website, telpon;
-    private Button btSimpan;
+    private ImageButton btSimpan, btBatal;
     private double latitude, longitude;
     private final static int PLACE_PICKER_REQUEST = 2;
     private final static int MY_PERMISSION_FINE_LOCATION = 101;
@@ -40,7 +42,8 @@ public class TambahLaundryActivityBaru extends AppCompatActivity {
         alamat = (EditText) findViewById(R.id.input_alamat);
         website = (EditText) findViewById(R.id.input_website);
         telpon = (EditText) findViewById(R.id.input_noTelfon);
-        btSimpan = (Button) findViewById(R.id.btn_simpan);
+        btSimpan = (ImageButton) findViewById(R.id.btn_simpan);
+        btBatal = (ImageButton) findViewById(R.id.btn_batal);
 
 
         btSimpan.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +51,12 @@ public class TambahLaundryActivityBaru extends AppCompatActivity {
             public void onClick(View view) {
                 tambahLaundry();
 
+            }
+        });
+        btBatal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 
@@ -66,15 +75,20 @@ public class TambahLaundryActivityBaru extends AppCompatActivity {
         String website_laundry = website.getText().toString();
         String telpon_laundry = telpon.getText().toString();
         String id_laundry = databaseLaundry.push().getKey();
-        Laundry laundry = new Laundry(id_laundry, nama_laundry, alamat_laundry, latitude, longitude, telpon_laundry, website_laundry);
-        databaseLaundry.child(id_laundry).setValue(laundry);
 
-        Toast.makeText(TambahLaundryActivityBaru.this,
-                "Data Laundry Berhasil Ditambahkan",
-                Toast.LENGTH_LONG)
-                .show();
-        Intent intent = new Intent(TambahLaundryActivityBaru.this, MapsActivity.class);
-        startActivity(intent);
+        if (!TextUtils.isEmpty(nama_laundry)&&!TextUtils.isEmpty(alamat_laundry)) {
+            Laundry laundry = new Laundry(id_laundry, nama_laundry, alamat_laundry, latitude, longitude, telpon_laundry, website_laundry);
+            databaseLaundry.child(id_laundry).setValue(laundry);
+
+            Toast.makeText(TambahLaundryActivityBaru.this,
+                    "Data Laundry Berhasil Ditambahkan",
+                    Toast.LENGTH_LONG)
+                    .show();
+            Intent intent = new Intent(TambahLaundryActivityBaru.this, MapsActivity.class);
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, "Terdapat Field yang Kosong, Data Gagal Disimpan", Toast.LENGTH_LONG).show();
+        }
 
     }
 
